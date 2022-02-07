@@ -12,15 +12,6 @@
   .wrapper {
     position: relative;
 
-    .container {
-      display: flex;
-      width: max-content;
-      margin-left: 50px;
-      margin-top: 10px;
-      transform: translateX(0px);
-      transition: all 0.5s ease;
-    }
-
     .slider {
       width: 50px;
       height: 100%;
@@ -40,6 +31,14 @@
       &.right {
         right: 0;
       }
+    }
+    .container {
+      display: flex;
+      width: max-content;
+      margin-left: 50px;
+      margin-top: 10px;
+      transform: translateX(0px);
+      transition: all 0.5s ease;
     }
   }
 }

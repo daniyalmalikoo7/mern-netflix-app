@@ -7,11 +7,12 @@ import { useRef } from "react";
 import ListItem from "../listItem/ListItem";
 import "./list.scss";
 
-const List = () => {
+const List = ({ list, movie }) => {
   const [slideNumber, setSlideNumber] = useState(0);
   const [isMoved, setIsMoved] = useState(false);
   const listRef = useRef();
 
+  console.log(list);
   const handleClick = (direction) => {
     setIsMoved(true);
 
@@ -29,7 +30,7 @@ const List = () => {
 
   return (
     <div className="list">
-      <div className="listTitle">Continue Watching</div>
+      <div className="listTitle">{list.title}</div>
       <div className="wrapper">
         <ArrowBackIosOutlined
           className="slider left"
@@ -38,17 +39,9 @@ const List = () => {
         />
         )
         <div ref={listRef} className="container">
-          <ListItem index={0} />
-          <ListItem index={1} />
-          <ListItem index={2} />
-          <ListItem index={3} />
-          <ListItem index={4} />
-          <ListItem index={5} />
-          <ListItem index={6} />
-          <ListItem index={7} />
-          <ListItem index={8} />
-          <ListItem index={9} />
-          <ListItem index={10} />
+          {list.content.map((item, index) => (
+            <ListItem key={index} index={index} listItem={item} />
+          ))}
         </div>
         <ArrowForwardIosOutlined
           onClick={() => handleClick("right")}
